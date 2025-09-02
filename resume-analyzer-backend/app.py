@@ -7,7 +7,15 @@ import os
 import traceback
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+# Restrictive CORS: allow only the deployed frontend origin
+CORS(
+    app,
+    resources={r"/*": {"origins": ["https://resume-analyzer-5bbd.vercel.app"]}},
+    methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Content-Type"],
+    expose_headers=["Content-Type"],
+    supports_credentials=False
+)
 
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
