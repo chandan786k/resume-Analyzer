@@ -9,7 +9,7 @@ function App() {
   const [dragActive, setDragActive] = useState(false)
   const fileInputRef = useRef(null)
 
-  const API_BASE_URL = 'https://vercel.com/chandans-projects-4aea83d7/resume-analyzer-lxv3/9ufkA4CtBCsDPV4SP3aiDN123ZFD' || 'http://127.0.0.1:5000'
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:5000'
 
 
   const handleFileSelect = (selectedFile) => {
